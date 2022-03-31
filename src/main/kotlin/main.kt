@@ -2,26 +2,18 @@ import attachments.*
 import attachments.mediaTypes.Audio
 
 fun main() {
-    val post1 = Post()
-    val post2 = Post()
-    val post3 = Post()
+    val post = Post()
+    val comment = Comment(postId = 1)
+    val report = Report(0, 1, ReportReasons.numberOfReason(99))
+    val service = WallService
+    ReportReasons.numberOfReason(1)
 
-    val post4 = Post(id = 2, date = 1111, text = "UpdatedPost")
-    val post5 = Post(id = 2222, text = "UpdatedPost")
+    service.add(post)
+    service.createComment(comment)
+    service.createReport(report)
 
-    WallService.add(post1)
-    WallService.add(post2)
-    WallService.add(post3)
+    val value = service.createReport(report)
+    println(report)
+    println(value)
 
-    println(WallService.postArray[0])
-    println(WallService.postArray[1])
-    println(WallService.postArray[2])
-    println(WallService.update(post4)) //true
-    println(WallService.update(post5)) //false
-    println(WallService.postArray[1])
-    val audio: Audio = Audio(
-        1, 1, "", "", 1, "", 1, 1, 1, 1, true, true
-    )
-    val audioAttachment: Attachment = AudioAttachment(audio)
-    println(audioAttachment.type)
 }

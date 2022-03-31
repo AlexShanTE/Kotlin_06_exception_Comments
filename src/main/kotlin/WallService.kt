@@ -1,6 +1,7 @@
 object WallService {
     var postArray: Array<Post> = emptyArray<Post>()
     var comments: Array<Comment> = emptyArray<Comment>()
+    var reports: Array<Report> = emptyArray()
     private var id = 1
 
     fun add(post: Post): Post {
@@ -28,5 +29,16 @@ object WallService {
             }
         }
         throw PostNotFoundException("Post not found")
+    }
+
+    fun createReport(report: Report): Int {
+        for (comment in comments) {
+            if (report.reason == null) throw UnknownReportReasonException("Unknown number of report reason")
+            if (report.commentId == comment.id) {
+                reports += report
+                return 1
+            }
+        }
+        throw CommentNotFoundException("Comment not found")
     }
 }
