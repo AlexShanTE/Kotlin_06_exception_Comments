@@ -4,7 +4,7 @@ import org.junit.Assert.*
 class WallServiceUpdateTest {
     @Test
     fun updateExisting() {
-        val service = WallService
+        val service = WallService()
         service.add(Post()) //id = 1
         service.add(Post()) //id = 2
         service.add(Post()) //id = 3
@@ -14,7 +14,7 @@ class WallServiceUpdateTest {
     }
     @Test
     fun updateNotExisting() {
-        val service = WallService
+        val service = WallService()
         service.add(Post()) //id = 1
         service.add(Post()) //id = 2
         service.add(Post()) //id = 3

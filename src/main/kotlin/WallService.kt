@@ -1,4 +1,4 @@
-object WallService {
+class WallService {
     var postArray: Array<Post> = emptyArray<Post>()
     var comments: Array<Comment> = emptyArray<Comment>()
     var reports: Array<Report> = emptyArray()
