@@ -5,8 +5,7 @@ class WallServiceAddTest {
     @Test
     fun addPost() {
         val service = WallService
-        val post = Post()
-        val addedPost = service.add(post)
+        val addedPost = service.add(Post())
 
         val expectedPostId = 1
 
